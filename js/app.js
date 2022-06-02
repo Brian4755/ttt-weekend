@@ -17,5 +17,9 @@ let winner
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
-  console.log('sanity check')
+  board = [null, null, null, null, null, null, null, null, null]
+  turn = 1
+  winner = null
+  render()
 }
+
