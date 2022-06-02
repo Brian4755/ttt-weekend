@@ -1,6 +1,4 @@
 /*-------------------------------- Constants --------------------------------*/
-let squareEls = document.querySelectorAll('#class')
-let messageEl = document.getElementById('message')
 /*---------------------------- Variables (state) ----------------------------*/
 let board
 let turn
@@ -8,6 +6,8 @@ let winner
 
 
 /*------------------------ Cached Element References ------------------------*/
+let squareEls = document.querySelectorAll('.square')
+let messageEl = document.getElementById('message')
 
 
 
@@ -16,6 +16,7 @@ let winner
 
 
 /*-------------------------------- Functions --------------------------------*/
+init()
 function init() {
   board = [null, null, null, null, null, null, null, null, null]
   turn = 1
@@ -23,3 +24,14 @@ function init() {
   render()
 }
 
+function render() {
+
+  board.forEach(function(square, i) {
+    console.log(squareEls[i])
+    if (square === 1) {
+      squareEls[i].textContent = 'X'
+    } if (square === -1) {
+      squareEls[i].textContent = 'O'
+    }
+  })
+}
