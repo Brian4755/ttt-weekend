@@ -23,7 +23,9 @@ let messageEl = document.getElementById('message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+squareEls.forEach(function(square) {
+  square.addEventListener('click', handleClick)
+})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -62,22 +64,13 @@ function renderMessage() {
 }
 
 
-squareEls.forEach(function(square) {
-  square.addEventListener('click', handleClick)
-  handClick()
-  let sqIdx = target.evt
-  if (board[sqIdx] !== null) {
-    return
-  }
-  else if (winner !== null) {
-    return
-  } else {
-    return (turn*-1)
-  }
-  let winner = getWinner
-  render()
-})
-
 function handleClick(evt) {
+  const sqIdx = parseInt(evt.target.id.substring(2))
+  console.log(typeof sqIdx)
+  if (board[sqIdx] !== null || winner !== null) {
+    return
+  }
 
+  board[sqIdx] = turn
+  turn*=-1
 }
