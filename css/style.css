@@ -9,11 +9,17 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  text-align: center;
+}
+
 section.board {
   display: grid;
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 0vmin;
+  margin: auto;
+  margin-top: 0vh;
 }
 
 div {
@@ -21,4 +27,11 @@ div {
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+}
+
+button {
+  text-align: left;
+  position: absolute;
+  top: 60%;
+  left: 50%;
 }

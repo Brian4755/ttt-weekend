@@ -19,7 +19,7 @@ let winner
 /*------------------------ Cached Element References ------------------------*/
 let squareEls = document.querySelectorAll('.square')
 let messageEl = document.getElementById('message')
-
+let resetBtnEl = document.querySelector('button')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -27,6 +27,9 @@ squareEls.forEach(function(square) {
   square.addEventListener('click', handleClick)
 })
 
+resetBtnEl.addEventListener('click', function() {
+  init()
+})
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -48,6 +51,9 @@ function render() {
     } 
     if (square === -1) {
       squareEls[i].textContent = 'O'
+    }
+    if (!square) {
+      squareEls[i].textContent = ''
     }
   })
   renderMessage()
@@ -72,5 +78,20 @@ function handleClick(evt) {
   }
 
   board[sqIdx] = turn
+  getWinner()
   turn*=-1
+  render()
+}
+
+function getWinner() {
+  winningCombos.forEach(function(winningcombo) {
+    let sum = board[winningcombo[0]] + board[winningcombo[1]] + board[winningcombo[2]]
+    if (Math.abs(sum) === 3) {
+      winner = turn
+    }
+
+    if (board.includes(null) === false) {
+      winner = 'T'
+    }
+  })
 }
