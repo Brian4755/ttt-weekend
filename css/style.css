@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
 }
 
@@ -20,6 +20,7 @@ section.board {
   grid-gap: 0vmin;
   margin: auto;
   margin-top: 0vh;
+  background-color: white
 }
 
 div {
@@ -34,4 +35,5 @@ button {
   position: absolute;
   top: 60%;
   left: 50%;
+  transform: translateX(-50%);
 }
