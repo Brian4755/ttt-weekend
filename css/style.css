@@ -20,7 +20,7 @@ section.board {
   grid-gap: 0vmin;
   margin: auto;
   margin-top: 0vh;
-  background-color: white
+  background-color: white;
 }
 
 div {
@@ -28,6 +28,9 @@ div {
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 button {
@@ -36,4 +39,29 @@ button {
   top: 60%;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 30px;
 }
+
+.circleOne {
+ position: absolute;
+ height: 90vh;
+ width: 90vh;
+ z-index: -1;
+ background-color: teal;
+ border: none;
+ border-radius: 50%;
+ top: 60%;
+
+}
+
+.circleTwo {
+  position: absolute;
+  height: 90vh;
+  width: 90vh;
+  z-index: -1;
+  background-color: teal;
+  border: none;
+  border-radius: 50%;
+  top: -50%;
+ 
+ }

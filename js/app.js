@@ -72,26 +72,28 @@ function renderMessage() {
 
 function handleClick(evt) {
   const sqIdx = parseInt(evt.target.id.substring(2))
-  console.log(typeof sqIdx)
   if (board[sqIdx] !== null || winner !== null) {
     return
   }
 
   board[sqIdx] = turn
-  getWinner()
   turn*=-1
+  getWinner()
   render()
 }
 
 function getWinner() {
-  winningCombos.forEach(function(winningcombo) {
-    let sum = board[winningcombo[0]] + board[winningcombo[1]] + board[winningcombo[2]]
-    if (Math.abs(sum) === 3) {
-      winner = turn
+  for (let i=0; i < winningCombos.length; i++) {
+    let sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]
+    console.log(sum)
+    if (sum === 3) {
+      winner = 1
     }
-
-    if (board.includes(null) === false) {
-      winner = 'T'
+    else if (sum === -3) {
+      winner = -1
     }
-  })
+  }
+  if (board.includes(null) === false) {
+    return null
+  }
 }
