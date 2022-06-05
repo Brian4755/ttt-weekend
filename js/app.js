@@ -92,8 +92,8 @@ function getWinner() {
     else if (sum === -3) {
       winner = -1
     }
-  }
-  if (board.includes(null) === false) {
-    return null
+    else if (board.includes(null) === false) {
+      winner = 'T'
+    }
   }
 }
